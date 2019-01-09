@@ -1,0 +1,13 @@
+server:
+  port: 9002
+
+spring:
+#  cloud:
+#    gateway:
+#      routes:
+#       -id: neo_route
+#        uri: http://www.baidu.com
+#        predlicates:
+#        -Path=/spring-cloud
+  application:
+    name: gateway

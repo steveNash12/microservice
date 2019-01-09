@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: hystrix-dashboard-turbine
+server:
+  port: 9006
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9001/eureka
+
+turbine:
+  app-config: consumer,test
+  aggregator:
+    cluster-config: default
+  cluster-name-expression: new String("default")
+

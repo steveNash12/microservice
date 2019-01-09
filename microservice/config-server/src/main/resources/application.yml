@@ -1,0 +1,18 @@
+server:
+  port: 9007
+spring:
+  profiles:
+    active: native   # 在 src/main/resource 下检索配置文件
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+
+        native: # 指定配置文件地址
+          search-locations: file:c/properties/config-server
+#        git:
+#          uri: git 仓库地址
+#          search-paths: config-repo
+#          username: xxx
+#          password: xxx

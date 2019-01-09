@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: test
+server:
+  port: 9003
+#  servlet:
+#    context-path: /test
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9001/eureka
+
+
+feign:
+  hystrix:
+    enabled: true
+
+# failed opening connection to hystrix.stream 404 http/1.1 404
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
