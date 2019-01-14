@@ -1,18 +1,39 @@
+#http://127.0.0.1:9007/config/dev
 server:
   port: 9007
 spring:
-  profiles:
-    active: native   # 在 src/main/resource 下检索配置文件
+#  profiles:
+#    active: native   # 在 src/main/resource 下检索配置文件
   application:
     name: config-server
   cloud:
     config:
       server:
 
-        native: # 指定配置文件地址
-          search-locations: file:c/properties/config-server
-#        git:
-#          uri: git 仓库地址
-#          search-paths: config-repo
-#          username: xxx
-#          password: xxx
+#        native: # 指定配置文件地址
+#          search-locations: file:c/properties/config-server
+        git:
+          uri: https://github.com/steveNash12/config-repo
+#          search-paths: /
+#          username: steveNash12
+#          password: sxlgithub1
+    bus:
+      enabled: true
+      trace:
+        enabled: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9001/eureka
+
+feign:
+  hystrix:
+    enabled: true
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh

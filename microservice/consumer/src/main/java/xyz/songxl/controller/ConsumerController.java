@@ -1,6 +1,8 @@
 package xyz.songxl.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,10 +17,15 @@ import java.time.Instant;
  * @desc ${DESCRIPTION}
  **/
 @RestController
+///// 使用该注解的类，会在接到SpringCloud配置中心配置刷新的时候，自动将新的配置更新到该类对应的字段中。
+@RefreshScope
 public class ConsumerController {
 
     @Autowired
     private HelloRemote helloRemote;
+
+    @Value("${neo.hello}")
+    private String hello;
 
     @RequestMapping("hello/{name}")
     public String index(@PathVariable("name") String name) {
@@ -29,6 +36,7 @@ public class ConsumerController {
     @GetMapping("/hello/abc")
     public String abc() {
         System.out.println("hystrix" + Instant.now());
-        return "success";
+        System.out.println(this.hello);
+        return hello;
     }
 }

@@ -1,14 +1,25 @@
 spring:
   application:
     name: test
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    bus:
+      trace:
+        enabled: true  # 开启消息跟踪
+      enabled: true
+
 server:
   port: 9003
 #  servlet:
 #    context-path: /test
-eureka:
-  client:
-    service-url:
-      defaultZone: http://127.0.0.1:9001/eureka
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://127.0.0.1:9001/eureka
 
 
 feign:

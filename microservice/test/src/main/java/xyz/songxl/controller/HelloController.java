@@ -1,6 +1,8 @@
 package xyz.songxl.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 import xyz.songxl.feign.ConsumerRemote;
 
@@ -14,10 +16,15 @@ import java.time.Instant;
  **/
 @RestController
 @RequestMapping("/hello")
+///// 使用该注解的类，会在接到SpringCloud配置中心配置刷新的时候，自动将新的配置更新到该类对应的字段中。
+@RefreshScope
 public class HelloController {
 
     @Autowired
     private  ConsumerRemote consumerRemote;
+
+    @Value("${neo.hello}")
+    private String hello;
 
     @GetMapping("sayHi")
     public String sayHi(@RequestParam("name") String userName,HttpServletRequest request) {
@@ -33,4 +40,9 @@ public class HelloController {
         return consumerRemote.abc();
     }
 
+    @GetMapping("/config")
+    public String getConfig() {
+        System.out.println("config file : " + this.hello);
+        return hello;
+    }
 }
