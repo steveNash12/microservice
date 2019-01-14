@@ -11,3 +11,8 @@ spring:
 #        -Path=/spring-cloud
   application:
     name: gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9001/eureka
+
