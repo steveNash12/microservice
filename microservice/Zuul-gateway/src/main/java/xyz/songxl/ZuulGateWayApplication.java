@@ -17,7 +17,7 @@ import xyz.songxl.filter.TokenFilter;
 
 @SpringBootApplication
 @EnableZuulProxy
-public class ZullGateWayApplication {
+public class ZuulGateWayApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ZullGateWayApplication.class, args);
