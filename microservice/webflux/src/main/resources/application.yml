@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: webflux
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    bus:
+      trace:
+        enabled: true  # 开启消息跟踪
+      enabled: true
+  sleuth:
+    web:
+      client:
+        enabled: true
+    sampler:
+      probability: 1.0 # 将采样比例设置为 1.0，也就是全部都需要。默认是 0.1
+  zipkin:
+    base-url: http://localhost:9411/ # 指定了 Zipkin 服务器的地址
+logging:
+  level:
+    org.springframework.cloud.openfeign: debug
+
+server:
+  port: 9004
+  servlet:
+    context-path: /webflux
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9001/eureka
+
+
+feign:
+  hystrix:
+    enabled: true
+
+# failed opening connection to hystrix.stream 404 http/1.1 404
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
