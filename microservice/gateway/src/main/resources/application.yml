@@ -10,7 +10,7 @@ spring:
 #        predlicates:
 #        -Path=/spring-cloud
   application:
-    name: gateway
+    name: zull-gateway
 eureka:
   client:
     service-url:

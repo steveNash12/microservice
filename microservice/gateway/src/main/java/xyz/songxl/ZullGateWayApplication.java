@@ -10,15 +10,17 @@ import xyz.songxl.filter.TokenFilter;
 /**
  * @author songxl
  * @create 2018-12-18 20:01
- * @desc ${DESCRIPTION}
+ * @desc 服务网关 Zuul（路由）
+ * https://windmt.com/2018/04/23/spring-cloud-10-zuul-router/
+ *
  **/
 
 @SpringBootApplication
 @EnableZuulProxy
-public class GateWayApplication {
+public class ZullGateWayApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GateWayApplication.class, args);
+        SpringApplication.run(ZullGateWayApplication.class, args);
     }
 
     /**
