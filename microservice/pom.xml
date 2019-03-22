@@ -63,6 +63,7 @@
         <module>config-server</module>
         <module>webflux</module>
         <module>mq</module>
+        <module>mq2</module>
     </modules>
 
     <build>
