@@ -20,7 +20,7 @@ import xyz.songxl.filter.TokenFilter;
 public class ZuulGateWayApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ZullGateWayApplication.class, args);
+        SpringApplication.run(ZuulGateWayApplication.class, args);
     }
 
     /**
