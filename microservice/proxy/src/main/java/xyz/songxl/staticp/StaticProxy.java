@@ -6,7 +6,7 @@ import xyz.songxl.pattern.Subject;
 /**
  * @author songxl
  * @create 2019-07-10 15:17
- * @desc 静态代理
+ * @desc 静态代理  代理类和正式的业务类需要实现同一个接口
  **/
 public class StaticProxy implements Subject {
 

@@ -39,5 +39,12 @@ public class Client {
         Subject cglibProxy = (Subject) enhancer.create();
         cglibProxy.sayHi();
 
+        /**
+         * jdk 与cglib 动态代理对比
+         * jdk 只能针对实现了接口类方法的方法进行动态代理
+         * cglib 基于继承来实现代理，无法对static final 类进行代理
+         * cglib 基于继承来实现代理，无法对 private static 方法进行代理
+         */
+
     }
 }
