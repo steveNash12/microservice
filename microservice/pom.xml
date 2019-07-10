@@ -64,6 +64,7 @@
         <module>webflux</module>
         <module>mq</module>
         <module>mq2</module>
+        <module>aop</module>
     </modules>
 
     <build>
