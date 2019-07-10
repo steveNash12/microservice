@@ -65,6 +65,7 @@
         <module>mq</module>
         <module>mq2</module>
         <module>aop</module>
+        <module>proxy</module>
     </modules>
 
     <build>
