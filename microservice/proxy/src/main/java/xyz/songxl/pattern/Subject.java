@@ -7,7 +7,7 @@ package xyz.songxl.pattern;
  **/
 public interface Subject {
 
-    public void request();
+    public void play();
 
     public void sayHi();
 }

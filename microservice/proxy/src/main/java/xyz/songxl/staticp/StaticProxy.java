@@ -15,30 +15,24 @@ public class StaticProxy implements Subject {
         this.realSubject = realSubject;
     }
     @Override
-    public void request() {
+    public void play() {
         System.out.println("this is proxy");
-
         try {
-            realSubject.request();
+            realSubject.play();
         } catch (Exception e) {
             e.printStackTrace();
             throw e;
-        } finally {
-            System.out.println("after proxy ");
         }
     }
 
     @Override
     public void sayHi() {
         System.out.println("this is proxy");
-
         try {
-            realSubject.request();
+            realSubject.sayHi();
         } catch (Exception e) {
             e.printStackTrace();
             throw e;
-        } finally {
-            System.out.println("after proxy ");
         }
     }
 }

@@ -8,7 +8,7 @@ package xyz.songxl.pattern;
 
 public class RealSubject implements Subject {
     @Override
-    public void request() {
+    public void play() {
         System.out.println("this is RealSubject");
     }
 

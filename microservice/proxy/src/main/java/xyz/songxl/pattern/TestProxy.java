@@ -12,7 +12,7 @@ import java.lang.reflect.Proxy;
  * @create 2019-07-10 15:20
  * @desc ${DESCRIPTION}
  **/
-public class Client {
+public class TestProxy {
 
 
     public static void main(String[] args) {
@@ -20,14 +20,14 @@ public class Client {
         // 缺点： 每个需要代理的方法都需要手动去写代理方法 对于方法比较多的情况下，会有很多的重复工作
         // 所以动态代理 出现了
         Subject staticProxy = new StaticProxy(new RealSubject());
-        staticProxy.request();
+        staticProxy.play();
         staticProxy.sayHi();
 
         System.out.println();
         System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles","true"); // 保存生成的字节码
         // jdk动态代理
-        Subject jdkProxy = (Subject) Proxy.newProxyInstance(Client.class.getClassLoader(),new Class[]{Subject.class},new JdkProxySubject(new RealSubject()));
-        jdkProxy.request();
+        Subject jdkProxy = (Subject) Proxy.newProxyInstance(TestProxy.class.getClassLoader(),new Class[]{Subject.class},new JdkProxySubject(new RealSubject()));
+        jdkProxy.play();
         jdkProxy.sayHi();
         System.out.println();
         // cglib 动态代理
@@ -36,11 +36,12 @@ public class Client {
         enhancer.setSuperclass(RealSubject.class);
         // 需要置入的代码类（代理类）
         enhancer.setCallback(new CglibProxySubject());
+        // 创建代理实例
         Subject cglibProxy = (Subject) enhancer.create();
         cglibProxy.sayHi();
 
         /**
-         * jdk 与cglib 动态代理对比
+         * spring aop jdk 与cglib 动态代理对比
          * jdk 只能针对实现了接口类方法的方法进行动态代理
          * cglib 基于继承来实现代理，无法对static final 类进行代理
          * cglib 基于继承来实现代理，无法对 private static 方法进行代理
