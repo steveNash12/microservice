@@ -66,6 +66,7 @@
         <module>mq2</module>
         <module>aop</module>
         <module>proxy</module>
+        <module>spring-src</module>
     </modules>
 
     <build>
