@@ -67,6 +67,7 @@
         <module>aop</module>
         <module>proxy</module>
         <module>spring-src</module>
+        <module>spring-ioc</module>
     </modules>
 
     <build>
